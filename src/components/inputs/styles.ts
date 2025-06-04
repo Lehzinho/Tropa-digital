@@ -4,25 +4,32 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   margin-bottom: 10px;
-  padding-bottom: 10px;
 
-  .inputContainer {
-    position: relative;
-    width: 100%;
-    button {
-      position: absolute;
-      background-color: transparent;
-      border: none;
-      z-index: 10;
-      right: 20px;
-      top: 50%;
-      transform: translateY(-50%);
-    }
+  p {
+    bottom: -8px;
 
-    svg {
-      stroke: ${({ theme }) => theme["main-color"]};
-      fill: ${({ theme }) => theme["main-color"]};
-    }
+    font-size: 12px;
+    font-weight: bold;
+    color: ${({ theme }) => theme["warning-color"]};
+  }
+`;
+
+export const InputContainer = styled.div`
+  position: relative;
+  width: 100%;
+  button {
+    position: absolute;
+    background-color: transparent;
+    border: none;
+    z-index: 10;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  svg {
+    stroke: ${({ theme }) => theme["main-color"]};
+    fill: ${({ theme }) => theme["main-color"]};
   }
 `;
 
@@ -40,6 +47,8 @@ export const Input = styled.input`
   width: 100%;
   border: none;
   border-radius: 100px;
+
+  margin-bottom: 10px;
 
   background-color: ${({ theme }) => theme["background-white2"]};
   padding: 0.7813rem 1.25rem;

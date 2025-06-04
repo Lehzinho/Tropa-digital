@@ -1,12 +1,17 @@
-import { useState, type ButtonHTMLAttributes, type FC } from "react";
+import {
+  useState,
+  type ButtonHTMLAttributes,
+  type FC,
+  type InputHTMLAttributes,
+} from "react";
 import * as S from "./styles";
 import { IoEyeOutline, IoEyeOffOutline } from "react-icons/io5";
 
-type InputProps = {
-  placeholder: string;
+interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   label: string;
   type?: string;
-};
+  error?: string;
+}
 
 interface EyeIconProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   active?: boolean;
@@ -20,24 +25,26 @@ const EyeIcon: FC<EyeIconProps> = ({ active = true, ...buttonProps }) => {
   );
 };
 
-export const Input = ({ placeholder, label, type = "text" }: InputProps) => {
+export const Input = ({
+  label,
+  error,
+  type = "text",
+  ...props
+}: InputProps) => {
   const [showPassword, setShowPassword] = useState<boolean>(true);
   return (
     <S.Container>
       <S.Label htmlFor={label}>{label}</S.Label>
-      <div className="inputContainer">
-        <S.Input
-          type={showPassword ? type : "text"}
-          id={label}
-          placeholder={placeholder}
-        />
+      <S.InputContainer className="inputContainer">
+        <S.Input type={showPassword ? type : "text"} id={label} {...props} />
         {type === "password" && (
           <EyeIcon
             active={showPassword}
             onClick={() => setShowPassword((prev) => !prev)}
           />
         )}
-      </div>
+      </S.InputContainer>
+      {error && <p>{error}</p>}
     </S.Container>
   );
 };

@@ -1,23 +1,26 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import { Input } from "../../components/inputs";
 import * as S from "./styles";
 import Logo from "../../assets/images/logo.svg?react";
 import Monitoring from "../../assets/images/monitoring.png";
 import { Button } from "../../components/button";
+import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
-import { useSearchParams } from "react-router-dom";
 
 const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).{8,}$/;
-
 const signInForm = z.object({
-  email: z.string().email("Please enter a valid email address"),
+  email: z
+    .string()
+    .min(1, "Digite seu e-mail.")
+    .email("Por favor digite um email valido."),
+
   password: z
     .string()
-    .regex(
-      passwordRegex,
-      "Password must contain at least 8 characters, one uppercase letter, one lowercase letter, one number, and one special character."
-    ),
+    .min(1, "Password is required")
+    .refine((value) => passwordRegex.test(value), {
+      message:
+        "A senha deve conter no mínimo 8 caracteres, incluindo uma letra maiúscula, uma letra minúscula, um número e um caractere especial.",
+    }),
 });
 
 type SignInForm = z.infer<typeof signInForm>;
@@ -26,10 +29,14 @@ export const Login = () => {
   const {
     register,
     handleSubmit,
-    formState: { isSubmitting },
-  } = useForm<SignInForm>();
+    formState: { isSubmitting, errors },
+  } = useForm<SignInForm>({
+    resolver: zodResolver(signInForm),
+  });
 
-  const handleSignIn = async (data: SignInForm) => {};
+  const handleSignIn = async (data: SignInForm) => {
+    console.log(data);
+  };
 
   return (
     <S.Container>
@@ -46,9 +53,16 @@ export const Login = () => {
               label="E-mail"
               type="email"
               {...register("email")}
+              error={errors.email?.message}
             />
-            <Input placeholder="Digite aqui" label="Senha" type="password" />
-            <Button text="Enviar" disabled={isSubmitting} />
+            <Input
+              placeholder="Digite aqui"
+              label="Senha"
+              type="password"
+              {...register("password")}
+              error={errors.password?.message}
+            />
+            <Button type="submit" text="Enviar" disabled={isSubmitting} />
           </form>
         </S.LoginContainer>
         <S.ImageContainer>
