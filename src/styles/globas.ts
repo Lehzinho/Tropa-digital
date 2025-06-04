@@ -8,7 +8,9 @@ export const GlobalStyle = createGlobalStyle`
     }
 
     body{
+        background-color: ${({ theme }) => theme["background-white2"]};
         -webkit-font-smoothing: antialiased;
+        
     }
 
     :focus{
@@ -16,6 +18,7 @@ export const GlobalStyle = createGlobalStyle`
     }
 
     body, input, textarea, button{
+     font-family: "Roboto", sans-serif;
     font-weight: 400;
     font-size: 1rem;
     }
