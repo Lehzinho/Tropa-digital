@@ -1,5 +1,10 @@
+import type { ButtonHTMLAttributes, FC } from "react";
 import * as S from "./styles";
 
-export const Button = () => {
-  return <S.Container>Enviar</S.Container>;
+interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+  text: string;
+}
+
+export const Button: FC<ButtonProps> = ({ text, ...props }) => {
+  return <S.Container {...props}>{text}</S.Container>;
 };
