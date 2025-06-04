@@ -8,6 +8,7 @@ export const GlobalStyle = createGlobalStyle`
     }
 
     body{
+        background-color: ${({ theme }) => theme["background-white2"]};
         -webkit-font-smoothing: antialiased;
         
     }

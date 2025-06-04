@@ -39,7 +39,7 @@ export const Label = styled.label`
 export const Input = styled.input`
   width: 100%;
   border: none;
-  border-radius: 1rem;
+  border-radius: 100px;
 
   background-color: ${({ theme }) => theme["background-white2"]};
   padding: 0.7813rem 1.25rem;

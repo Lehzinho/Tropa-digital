@@ -15,19 +15,22 @@ interface EyeIconProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 const EyeIcon: FC<EyeIconProps> = ({ active = true, ...buttonProps }) => {
   return (
     <button {...buttonProps}>
-      {active ? <IoEyeOffOutline size={26} /> : <IoEyeOutline size={26} />}
+      {active ? <IoEyeOutline size={26} /> : <IoEyeOffOutline size={26} />}
     </button>
   );
 };
 
 export const Input = ({ placeholder, label, type = "text" }: InputProps) => {
   const [showPassword, setShowPassword] = useState<boolean>(true);
-  console.log(showPassword);
   return (
     <S.Container>
       <S.Label htmlFor={label}>{label}</S.Label>
       <div className="inputContainer">
-        <S.Input type={type} id={label} placeholder={placeholder} />
+        <S.Input
+          type={showPassword ? type : "text"}
+          id={label}
+          placeholder={placeholder}
+        />
         {type === "password" && (
           <EyeIcon
             active={showPassword}
