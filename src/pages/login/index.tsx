@@ -6,6 +6,8 @@ import { Button } from "../../components/button";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
+import { useAuthContext } from "../../context/AuthContext";
+import { useNavigate } from "react-router-dom";
 
 const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).{8,}$/;
 const signInForm = z.object({
@@ -26,6 +28,9 @@ const signInForm = z.object({
 type SignInForm = z.infer<typeof signInForm>;
 
 export const Login = () => {
+  const { handleAuthentication } = useAuthContext();
+  const navigate = useNavigate();
+
   const {
     register,
     handleSubmit,
@@ -35,7 +40,11 @@ export const Login = () => {
   });
 
   const handleSignIn = async (data: SignInForm) => {
+    // fetch data from db
     console.log(data);
+
+    handleAuthentication(true);
+    navigate("/");
   };
 
   return (
