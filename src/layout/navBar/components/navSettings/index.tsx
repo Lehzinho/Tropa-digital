@@ -1,10 +1,10 @@
-import { SetButton } from "./setButton";
 import * as S from "./styles";
 import { UserInfo } from "./userInfo";
 import User from "@/assets/icons/user.svg?react";
 import Logout from "@/assets/icons/logout.svg?react";
 import { useNavigate } from "react-router-dom";
 import { useAuthContext } from "@/context/AuthContext";
+import { SetButton } from "@/components/setButton";
 
 export const NavSettings = () => {
   const { handleAuthentication } = useAuthContext();

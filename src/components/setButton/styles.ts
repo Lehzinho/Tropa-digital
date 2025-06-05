@@ -8,7 +8,7 @@ export const SetButton = styled.button`
   font-size: 14px;
   border: none;
   color: ${({ theme }) => theme["text-color-black"]};
-  background-color: ${({ theme }) => theme["background-white2"]};
+  background-color: ${({ theme }) => theme["background-white1"]};
 
   width: 100%;
   height: 35px;

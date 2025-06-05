@@ -1,12 +1,29 @@
 import styled from "styled-components";
 
-export const Container = styled.button`
+type ContainerProps = {
+  $color: string;
+};
+
+export const Container = styled.button<ContainerProps>`
   width: 100%;
-  background-color: ${({ theme }) => theme["main-color"]};
+  background-color: ${({ theme, $color }) =>
+    $color === "default" ? theme["main-color"] : theme["background-white2"]};
   border: none;
   padding: 0.7813rem 15px;
   border-radius: 100px;
+  cursor: pointer;
 
-  color: ${({ theme }) => theme["background-white1"]};
+  color: ${({ theme, $color }) =>
+    $color === "default"
+      ? theme["background-white1"]
+      : theme["text-color-black"]};
+
+  &:hover {
+    background-color: ${({ theme, $color }) =>
+      $color === "white" && theme["main-color"]};
+
+    color: ${({ theme, $color }) =>
+      $color === "white" && theme["background-white1"]};
+  }
   font-size: 0.8125rem;
 `;

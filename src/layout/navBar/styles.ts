@@ -4,6 +4,7 @@ export const Container = styled.div`
   grid-area: nav;
   display: grid;
   grid-template-rows: 85px auto;
+  background-color: ${({ theme }) => theme["background-white1"]};
   .user {
     height: 42px;
     width: 100%;

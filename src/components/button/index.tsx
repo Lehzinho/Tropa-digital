@@ -3,8 +3,17 @@ import * as S from "./styles";
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   text: string;
+  color?: "default" | "white";
 }
 
-export const Button: FC<ButtonProps> = ({ text, ...props }) => {
-  return <S.Container {...props}>{text}</S.Container>;
+export const Button: FC<ButtonProps> = ({
+  text,
+  color = "default",
+  ...props
+}) => {
+  return (
+    <S.Container $color={color} {...props}>
+      {text}
+    </S.Container>
+  );
 };
