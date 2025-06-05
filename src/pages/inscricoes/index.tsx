@@ -9,7 +9,7 @@ export const Incricoes = () => {
         opacity: "60%",
       }}
     >
-      Incricoes
+      Inscrições
     </div>
   );
 };
