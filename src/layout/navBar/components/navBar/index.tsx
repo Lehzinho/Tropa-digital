@@ -1,10 +1,10 @@
 import { useLocation } from "react-router-dom";
-import Calendar from "../../../../assets/icons/calendar.svg?react";
-import Dash from "../../../../assets/icons/dash.svg?react";
-import Inscricoes from "../../../../assets/icons/inscricoes.svg?react";
-import Teams from "../../../../assets/icons/teams.svg?react";
-import { NavButtons } from "../navButtons";
+import Calendar from "@/assets/icons/calendar.svg?react";
+import Dash from "@/assets/icons/dash.svg?react";
+import Inscricoes from "@/assets/icons/inscricoes.svg?react";
+import Teams from "@/assets/icons/teams.svg?react";
 import * as S from "./styles";
+import { NavButtons } from "./navButtons";
 
 export const NavBar = () => {
   const { pathname } = useLocation();

@@ -1,12 +1,12 @@
-import { Input } from "../../components/inputs";
+import { Input } from "@/components/inputs";
 import * as S from "./styles";
-import Logo from "../../assets/images/logo.svg?react";
-import Monitoring from "../../assets/images/monitoring.png";
-import { Button } from "../../components/button";
+import Logo from "@/assets/images/logo.svg?react";
+import Monitoring from "@/assets/images/monitoring.png";
+import { Button } from "@/components/button";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
-import { useAuthContext } from "../../context/AuthContext";
+import { useAuthContext } from "@/context/AuthContext";
 import { useNavigate } from "react-router-dom";
 
 const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).{8,}$/;

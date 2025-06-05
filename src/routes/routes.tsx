@@ -1,8 +1,12 @@
 // routes/index.tsx
 import { createBrowserRouter } from "react-router-dom";
-import { Login } from "../pages/login";
-import { Home } from "../pages/home";
-import { DefaultLayout } from "../layout";
+import { Login } from "@/pages/login";
+import { Home } from "@/pages/home";
+import { DefaultLayout } from "@/layout";
+import { Equipes } from "@/pages/equipes";
+import { Eventos } from "@/pages/eventos";
+import { Incricoes } from "@/pages/inscricoes";
+import { Dados } from "@/pages/dados";
 
 export const authRouter = createBrowserRouter([
   {
@@ -14,9 +18,10 @@ export const authRouter = createBrowserRouter([
     element: <DefaultLayout />,
     children: [
       { path: "/", element: <Home /> },
-      { path: "/equipes", element: <Home /> },
-      { path: "/eventos", element: <Home /> },
-      { path: "/inscricoes", element: <Home /> },
+      { path: "/equipes", element: <Equipes /> },
+      { path: "/eventos", element: <Eventos /> },
+      { path: "/inscricoes", element: <Incricoes /> },
+      { path: "/dados", element: <Dados /> },
     ],
   },
 ]);

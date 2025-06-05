@@ -1,6 +1,7 @@
 import * as S from "./styles";
-import Logo from "../../assets/images/logo.svg?react";
+import Logo from "@/assets/images/logo.svg?react";
 import { NavBar } from "./components/navBar";
+import { NavSettings } from "./components/navSettings";
 
 export const Menu = () => {
   return (
@@ -14,11 +15,7 @@ export const Menu = () => {
           <NavBar />
         </div>
         <div className="divider" />
-        <S.SettingsContainer>
-          <div className="user"></div>
-          <div className="button"></div>
-          <div className="button"></div>
-        </S.SettingsContainer>
+        <NavSettings />
       </S.NavContainer>
     </S.Container>
   );
