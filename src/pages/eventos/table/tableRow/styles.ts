@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const Status = styled.div`
+export const Status = styled.span`
   display: inline-block;
   width: 9px;
   height: 9px;

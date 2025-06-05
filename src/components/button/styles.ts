@@ -5,6 +5,10 @@ type ContainerProps = {
 };
 
 export const Container = styled.button<ContainerProps>`
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  gap: 5px;
   width: 100%;
   background-color: ${({ theme, $color }) =>
     $color === "default" ? theme["main-color"] : theme["background-white2"]};

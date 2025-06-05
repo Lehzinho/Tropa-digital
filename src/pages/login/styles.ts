@@ -46,10 +46,15 @@ export const LoginContainer = styled.div`
     margin-bottom: 35px;
 
     h1 {
-      font-size: 1.625rem;
-      color: ${({ theme }) => theme["main-color"]};
     }
     p {
+      line-height: 17px;
+      span {
+        font-weight: bold;
+        font-size: 1.625rem;
+        color: ${({ theme }) => theme["main-color"]};
+        display: block;
+      }
       color: ${({ theme }) => theme["text-color"]};
       font-size: 0.8125rem;
     }

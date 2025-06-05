@@ -21,4 +21,8 @@ export const NavButton = styled(NavLink)<NavButtonProps>`
   text-decoration: none;
   color: ${({ theme, $isSelected }) =>
     $isSelected ? theme["background-white1"] : theme["text-color-black"]};
+  svg {
+    fill: ${({ theme, $isSelected }) =>
+      $isSelected ? theme["background-white1"] : theme["text-color-black"]};
+  }
 `;

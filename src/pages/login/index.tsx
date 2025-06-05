@@ -18,7 +18,7 @@ const signInForm = z.object({
 
   password: z
     .string()
-    .min(1, "Password is required")
+    .min(1, "Digite sua senha")
     .refine((value) => passwordRegex.test(value), {
       message:
         "A senha deve conter no mínimo 8 caracteres, incluindo uma letra maiúscula, uma letra minúscula, um número e um caractere especial.",
@@ -53,8 +53,10 @@ export const Login = () => {
         <S.LoginContainer>
           <Logo className="logo" />
           <div>
-            <h1>Bem-vindo de volta</h1>
-            <p>Entre com sua conta para acessar o painel.</p>
+            <p>
+              <span>Bem-vindo de volta</span> Entre com sua conta para acessar o
+              painel.
+            </p>
           </div>
           <form onSubmit={handleSubmit(handleSignIn)}>
             <Input

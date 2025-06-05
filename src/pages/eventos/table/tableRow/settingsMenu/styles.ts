@@ -18,8 +18,9 @@ export const Container = styled.div<containerProps>`
   border-radius: 15px;
   border: 1px solid lightgray;
   position: absolute;
-  right: 70%;
+  right: 85%;
   top: 30%;
+  z-index: 10;
   div:nth-child(2) {
     border-top: 1px solid #0000001a;
     border-bottom: 1px solid #0000001a;

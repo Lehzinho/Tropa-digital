@@ -38,6 +38,7 @@ export const Label = styled.label`
   line-height: 0.9375rem;
   letter-spacing: 0;
 
+  font-weight: bold;
   margin-bottom: 0.3125rem;
 
   color: ${({ theme }) => theme["main-color"]};
