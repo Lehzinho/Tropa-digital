@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
+  position: relative;
   flex: 1;
   height: 100%;
   padding: 30px;

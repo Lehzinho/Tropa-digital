@@ -1,28 +1,9 @@
+import { useTeamContext } from "@/context/TeamContext";
 import * as S from "./styles";
 import { TableRow } from "./tableRow";
 
-const tableData = [
-  {
-    nome: "Clube do Laço Coração Pantaneiro",
-    total: 10,
-    status: "Ativo",
-    data: "09 a 11 de Junho",
-  },
-  {
-    nome: "Clube do Laço Coração Pantaneiro",
-    total: 10,
-    status: "Ativo",
-    data: "09 a 11 de Junho",
-  },
-  {
-    nome: "Clube do Laço Coração Pantaneiro",
-    total: 10,
-    status: "Ativo",
-    data: "09 a 12 de Junho",
-  },
-];
-
 export const Table = () => {
+  const { team } = useTeamContext();
   return (
     <S.Table>
       <thead>
@@ -35,7 +16,7 @@ export const Table = () => {
         </tr>
       </thead>
       <tbody>
-        {tableData.map((item, key) => (
+        {team.map((item, key) => (
           <TableRow key={key} {...item} />
         ))}
       </tbody>
